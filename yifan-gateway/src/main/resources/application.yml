@@ -1,0 +1,32 @@
+#spring.application.name=yifan-gateway
+#server.port=2001
+#
+#eureka.client.service-url.defaultZone=http://127.0.0.1:8990/eureka/
+#eureka.instance.prefer-ip-address=true
+#
+#spring.cloud.gateway.routes[0].id=instance-a
+#spring.cloud.gateway.routes[0].uri=http://127.0.0.1:1000
+#spring.cloud.gateway.routes[0].predicates[0].name=-Path
+
+
+spring:
+  application:
+    name: yifan-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: instance-a
+          uri: http://127.0.0.1:1000
+          predicates:
+            - Path=/instance-a
+
+
+server:
+  port: 2001
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8990/eureka/
+#  instance:
+#    prefer-ip-address: true
+
