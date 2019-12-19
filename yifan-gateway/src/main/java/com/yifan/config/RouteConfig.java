@@ -1,9 +1,12 @@
 package com.yifan.config;
 
+import java.time.Duration;
+
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.yifan.filter.RateLimitByIpGatewayFilter;
 
 /**
  * The type Route config.
@@ -23,10 +26,15 @@ public class RouteConfig {
      * @author wuyifan
      * @date 2019年12月17日 19:51
      */
-    // @Bean
+//    @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("path_route", r -> r.path("/about").uri("http://ityouknow.com"))
+                .route("yifan-instance", r ->
+                        r.path("/yifan-instance/**")
+                                .filters(f -> f.stripPrefix(1)
+                                    .filter(new RateLimitByIpGatewayFilter(200, 1, Duration.ofSeconds(1))))
+                                .uri("lb://YIFAN-INSTANCE")
+                                .order(0))
                 .build();
     }
 
