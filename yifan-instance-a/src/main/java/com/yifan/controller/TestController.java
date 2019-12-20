@@ -33,7 +33,7 @@ public class TestController {
     public String test() {
         log.info("a...........a..........a............");
         try {
-            Thread.sleep(4000);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             log.error("异常", e);
         }

@@ -3,9 +3,6 @@ spring:
     name: yifan-gateway
   cloud:
     gateway:
-      httpclient:
-        connect-timeout: 5000
-        response-timeout: 5s
       routes:
         - id: yifan-instance
           uri: lb://YIFAN-INSTANCE
@@ -35,14 +32,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 0
-#  command:
-#    default:
-#      execution:
-#        timeout:
-#          enabled=true
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds=10000
+
 
 server:
   port: 2001
@@ -56,3 +46,16 @@ logging:
     org.springframework.cloud.gateway: debug
 
 
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
