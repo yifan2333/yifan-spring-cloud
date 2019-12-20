@@ -32,11 +32,11 @@ public class TestController {
     @GetMapping("test")
     public String test() {
         log.info("a...........a..........a............");
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            log.error("异常", e);
-//        }
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            log.error("异常", e);
+        }
         return applicationName + "a";
     }
 

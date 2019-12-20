@@ -3,6 +3,9 @@ spring:
     name: yifan-gateway
   cloud:
     gateway:
+      httpclient:
+        connect-timeout: 5000
+        response-timeout: 5s
       routes:
         - id: yifan-instance
           uri: lb://YIFAN-INSTANCE
@@ -12,10 +15,9 @@ spring:
           filters:
             - StripPrefix=1
             - AddResponseHeader=X-Response-Default-Foo,Default-Bar
-            - name:
-                Hystrix
+            - name: Hystrix
               args:
-                name: default
+                name: fallbackcmd
                 fallbackUri: forward:/fallback
       #      discovery:
 #        locator:
@@ -33,8 +35,6 @@ spring:
     host: 127.0.0.1
     port: 6379
     database: 0
-
-#hystrix:
 #  command:
 #    default:
 #      execution:
