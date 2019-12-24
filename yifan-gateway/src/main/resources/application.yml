@@ -16,12 +16,14 @@ spring:
               args:
                 name: fallbackcmd
                 fallbackUri: forward:/fallback
+                # 配置使用service-id路由跳转微服务，忽略大小写
       #      discovery:
 #        locator:
 #          enabled: false
 #          lower-case-service-id: false
       default-filters:
         - Elapsed=true
+        # 配置限流
 #        - name:
 #            RequestRateLimiter
 #          args:
@@ -61,8 +63,10 @@ hystrix:
       execution:
         isolation:
           semaphore:
+            # 最大并发数
             maxConcurrentRequests: 7483647
           thread:
+            # 超时时间
             timeoutInMilliseconds: 6000
 
 
