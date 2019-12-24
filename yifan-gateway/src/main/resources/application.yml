@@ -52,7 +52,6 @@ hystrix:
     default:
       coreSize: 100
       maximumSize: 400
-      maxQueueSize: -1
       allowMaximumSizeToDivergeFromCoreSize: true
       metrics:
         rollingStats:
