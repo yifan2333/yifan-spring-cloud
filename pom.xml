@@ -23,6 +23,7 @@
         <module>yifan-eureka</module>
         <module>yifan-zuul</module>
         <module>yifan-gateway</module>
+        <module>yifan-hystrix-dashboard</module>
 
         <module>yifan-instance-a</module>
         <module>yifan-instance-b</module>
