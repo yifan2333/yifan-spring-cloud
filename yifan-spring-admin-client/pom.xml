@@ -7,14 +7,11 @@
         <artifactId>yifan-spring-cloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>yifan-instance-a</artifactId>
+    <artifactId>yifan-spring-admin-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>yifan-instance-a</name>
-    <description>Demo project for Spring Boot</description>
-
+    <name>yifan-spring-admin-client</name>
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -48,7 +45,6 @@
             <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -61,6 +57,5 @@
             </exclusions>
         </dependency>
     </dependencies>
-
 
 </project>
